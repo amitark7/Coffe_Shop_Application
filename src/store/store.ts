@@ -75,8 +75,8 @@ export const useStore = create(
             if (type == 'Coffee') {
               for (let i = 0; i < state.CoffeeList.length; i++) {
                 if (state.CoffeeList[i].id == id) {
-                  if (state.CoffeeList[i].favorite == false) {
-                    state.CoffeeList[i].favorite = true;
+                  if (state.CoffeeList[i].favourite == false) {
+                    state.CoffeeList[i].favourite = true;
                     state.FavoritesList.unshift(state.CoffeeList[i]);
                   }
                   break;
@@ -85,8 +85,8 @@ export const useStore = create(
             } else if (type == 'Bean') {
               for (let i = 0; i < state.BeansList.length; i++) {
                 if (state.BeansList[i].id == id) {
-                  if (state.BeansList[i].favorite == false) {
-                    state.BeansList[i].favorite = true;
+                  if (state.BeansList[i].favourite == false) {
+                    state.BeansList[i].favourite = true;
                     state.FavoritesList.unshift(state.BeansList[i]);
                   }
                   break;
@@ -99,8 +99,8 @@ export const useStore = create(
         if(type=='Coffee'){
           for (let i = 0; i < state.CoffeeList.length; i++) {
             if (state.CoffeeList[i].id == id) {
-              if (state.CoffeeList[i].favorite == true) {
-                state.CoffeeList[i].favorite = false;
+              if (state.CoffeeList[i].favourite == true) {
+                state.CoffeeList[i].favourite = false;
               }
               break;
             }
@@ -108,8 +108,8 @@ export const useStore = create(
         }else if(type=='Bean'){
           for (let i = 0; i < state.BeansList.length; i++) {
             if (state.BeansList[i].id == id) {
-              if (state.BeansList[i].favorite == true) {
-                state.BeansList[i].favorite = false;
+              if (state.BeansList[i].favourite == true) {
+                state.BeansList[i].favourite = false;
               }
               break;
             }
