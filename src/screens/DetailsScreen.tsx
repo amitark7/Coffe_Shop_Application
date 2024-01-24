@@ -27,6 +27,8 @@ const DetailsScreen = ({navigation, route}: any) => {
   const [price, setPrice] = useState(ItemOfIndex.prices[0]);
   const [fulldesc, setFulldesc] = useState(false);
   const addToFavorteList = useStore((state: any) => state.addToFavorteList);
+  const addToCart = useStore((state: any) => state.addToCart);
+  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
   );
@@ -34,10 +36,34 @@ const DetailsScreen = ({navigation, route}: any) => {
   const BackHandler = () => {
     navigation.pop();
   };
+
   const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
     console.log(favorite, type, id);
 
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
+  };
+
+  const addToCartHandler = ({
+    id,
+    index,
+    name,
+    type,
+    price,
+    rosted,
+    imagelink_square,
+    special_ingredient,
+  }: any) => {
+    addToCart({
+    id,
+    index,
+    name,
+    type,
+    rosted,
+    imagelink_square,
+    special_ingredient,
+    prices:[{...price,quantity:1}],
+    })
+    calculateCartPrice();
   };
   return (
     <View style={styles.ScreenContainer}>
@@ -127,7 +153,7 @@ const styles = StyleSheet.create({
   },
   ScrollViewFlex: {
     flexGrow: 1,
-    justifyContent:'space-between'
+    justifyContent: 'space-between',
   },
   FooterInfoArea: {
     padding: SPACING.space_20,
