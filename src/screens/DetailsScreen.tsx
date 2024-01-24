@@ -41,6 +41,7 @@ const DetailsScreen = ({navigation, route}: any) => {
           BackHandler={BackHandler}
           ToggleFavorite={ToggleFavorite}
         />
+       
       </ScrollView>
     </View>
   );
