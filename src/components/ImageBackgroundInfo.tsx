@@ -177,7 +177,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap:SPACING.space_20
   },
-  ProperFirst: {},
-  PropertiesTextFirst: {},
+  ProperFirst: {
+    height:55,
+    width:55,
+    borderRadius:BORDERRADIUS.radius_15,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:COLORS.primaryBlackHex
+  },
+  PropertiesTextFirst: {
+    fontFamily:FONTFAMILY.poppins_semibold,
+    fontSize:FONTSIZE.size_10,
+    color:COLORS.primaryWhiteHex
+  },
 });
 export default ImageBackgroundInfo;
