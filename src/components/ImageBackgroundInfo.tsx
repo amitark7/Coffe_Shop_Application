@@ -117,9 +117,19 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProp> = ({
                     size={type == 'Bean' ? FONTSIZE.size_18 : FONTSIZE.size_24}
                     color={COLORS.primaryOrangeHex}
                   />
-                  <Text style={styles.PropertiesTextFirst}>{ingredients}</Text>
+                  <Text style={styles.PropertiesTextLast}>{ingredients}</Text>
                 </View>
               </View>
+            </View>
+            <View style={styles.InfoContainerRow}>
+                    <View style={styles.RatingConatiner}>
+                      <CustomIcon name='star' size={FONTSIZE.size_20} color={COLORS.primaryOrangeHex}/>
+                      <Text style={styles.RatingText}>{average_rating}</Text>
+                      <Text style={styles.RatingCountText}>({ratings_count})</Text>
+                    </View>
+                    <View style={styles.RoastedContainer}>
+                    <Text style={styles.RostedText}>{roasted}</Text>
+                    </View>
             </View>
           </View>
         </View>
@@ -190,5 +200,39 @@ const styles = StyleSheet.create({
     fontSize:FONTSIZE.size_10,
     color:COLORS.primaryWhiteHex
   },
+  PropertiesTextLast:{
+    fontFamily:FONTFAMILY.poppins_semibold,
+    fontSize:FONTSIZE.size_10,
+    color:COLORS.primaryWhiteHex,
+    marginTop:SPACING.space_2+SPACING.space_4
+  },
+  RatingConatiner:{
+    flexDirection:'row',
+    gap:SPACING.space_10,
+    alignItems:'center'
+  },
+  RatingText:{
+    fontFamily:FONTFAMILY.poppins_semibold,
+    fontSize:FONTSIZE.size_18,
+    color:COLORS.primaryWhiteHex
+  },
+  RatingCountText:{
+    fontFamily:FONTFAMILY.poppins_regular,
+    fontSize:FONTSIZE.size_12,
+    color:COLORS.primaryWhiteHex
+  },
+  RoastedContainer:{
+    height:55,
+    width:55*2+SPACING.space_20,
+    borderRadius:BORDERRADIUS.radius_15,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:COLORS.primaryBlackHex
+  },
+  RostedText:{
+    fontFamily:FONTFAMILY.poppins_regular,
+    fontSize:FONTSIZE.size_10,
+    color:COLORS.primaryWhiteHex
+  }
 });
 export default ImageBackgroundInfo;
