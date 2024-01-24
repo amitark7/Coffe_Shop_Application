@@ -1,7 +1,15 @@
-import {ScrollView, StatusBar, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
+import React, {useState} from 'react';
 import {useStore} from '../store/store';
-import {COLORS} from '../theme/theme';
+import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import ImageBackgroundInfo from '../components/ImageBackgroundInfo';
 
 const DetailsScreen = ({navigation, route}: any) => {
@@ -9,17 +17,21 @@ const DetailsScreen = ({navigation, route}: any) => {
     route.params.type == 'Coffee' ? state.CoffeeList : state.BeansList,
   )[route.params.index];
 
-  const addToFavorteList=useStore((state:any)=>state.addToFavorteList)
-  const deleteFromFavoriteList=useStore((state:any)=>state.deleteFromFavoriteList)
+  const [price, setPrice] = useState(ItemOfIndex.prices[0]);
+  const [fulldesc, setFulldesc] = useState(false);
+  const addToFavorteList = useStore((state: any) => state.addToFavorteList);
+  const deleteFromFavoriteList = useStore(
+    (state: any) => state.deleteFromFavoriteList,
+  );
 
-  const BackHandler=()=>{
-    navigation.pop()
-  }
-  const ToggleFavorite=(favorite:boolean,type:string,id:string)=>{
-    console.log(favorite,type,id);
-    
-    favorite?deleteFromFavoriteList(type,id):addToFavorteList(type,id)
-  }
+  const BackHandler = () => {
+    navigation.pop();
+  };
+  const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
+    console.log(favorite, type, id);
+
+    favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
+  };
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -41,7 +53,56 @@ const DetailsScreen = ({navigation, route}: any) => {
           BackHandler={BackHandler}
           ToggleFavorite={ToggleFavorite}
         />
-       
+        <View style={styles.FooterInfoArea}>
+          <Text style={styles.InfoTitle}>Description</Text>
+          {fulldesc ? (
+            <TouchableWithoutFeedback onPress={() => setFulldesc(!fulldesc)}>
+              <Text style={styles.descriptionText}>
+                {ItemOfIndex.description}
+              </Text>
+            </TouchableWithoutFeedback>
+          ) : (
+            <TouchableWithoutFeedback onPress={() => setFulldesc(!fulldesc)}>
+              <Text style={styles.descriptionText} numberOfLines={3}>
+                {ItemOfIndex.description}
+              </Text>
+            </TouchableWithoutFeedback>
+          )}
+          <Text style={styles.InfoTitle}>Size</Text>
+          <View style={styles.SizeOuterContainer}>
+            {ItemOfIndex.prices.map((data: any) => (
+              <TouchableOpacity
+              onPress={()=>setPrice(data)}
+                style={[
+                  styles.SizeBox,
+                  {
+                    borderColor:
+                      data.size == price.size
+                        ? COLORS.primaryOrangeHex
+                        : COLORS.primaryDarkGreyHex,
+                  },
+                ]}
+                key={data.size}>
+                <Text
+                  style={[
+                    styles.SizeText,
+                    {
+                      fontSize:
+                        ItemOfIndex.type == 'Bean'
+                          ? FONTSIZE.size_14
+                          : FONTSIZE.size_16,
+                      color:
+                        data.size == price.size
+                          ? COLORS.primaryOrangeHex
+                          : COLORS.primaryLightGreyHex,
+                    },
+                  ]}>
+                  {data.size}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
@@ -54,6 +115,41 @@ const styles = StyleSheet.create({
   },
   ScrollViewFlex: {
     flexGrow: 1,
+  },
+  FooterInfoArea: {
+    padding: SPACING.space_20,
+  },
+  InfoTitle: {
+    fontSize: FONTSIZE.size_16,
+    fontFamily: FONTFAMILY.poppins_semibold,
+    color: COLORS.primaryWhiteHex,
+    marginBottom: SPACING.space_10,
+  },
+  descriptionText: {
+    fontSize: FONTSIZE.size_14,
+    fontFamily: FONTFAMILY.poppins_regular,
+    color: COLORS.primaryWhiteHex,
+    marginBottom: SPACING.space_30,
+    letterSpacing: 0.5,
+  },
+  SizeOuterContainer: {
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    gap:SPACING.space_20
+  },
+  SizeBox: {
+    flex:1,
+    backgroundColor:COLORS.primaryDarkGreyHex,
+    alignItems:'center',
+    justifyContent:'center',
+    height:SPACING.space_24*2,
+    borderRadius:BORDERRADIUS.radius_10,
+    borderWidth:2
+
+  },
+  SizeText: {
+    fontFamily:FONTFAMILY.poppins_medium
   },
 });
 export default DetailsScreen;
