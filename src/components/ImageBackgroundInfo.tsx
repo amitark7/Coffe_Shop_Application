@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import CustomIcon from './CustomIcon';
 import GradientBGIcon from './GradientBGIcon';
-import {COLORS, FONTSIZE, SPACING} from '../theme/theme';
+import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 
 interface ImageBackgroundInfoProp {
   EnableBackHandler: boolean;
@@ -98,7 +98,18 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProp> = ({
                     size={type == 'Bean' ? FONTSIZE.size_18 : FONTSIZE.size_24}
                     color={COLORS.primaryOrangeHex}
                   />
-                  <Text style={[styles.PropertiesTextFirst,{margin:type=='Bean'?SPACING.space_4+SPACING.space_2:0}]}>{type}</Text>
+                  <Text
+                    style={[
+                      styles.PropertiesTextFirst,
+                      {
+                        margin:
+                          type == 'Bean'
+                            ? SPACING.space_4 + SPACING.space_2
+                            : 0,
+                      },
+                    ]}>
+                    {type}
+                  </Text>
                 </View>
                 <View style={styles.ProperFirst}>
                   <CustomIcon
@@ -106,7 +117,7 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProp> = ({
                     size={type == 'Bean' ? FONTSIZE.size_18 : FONTSIZE.size_24}
                     color={COLORS.primaryOrangeHex}
                   />
-                  <Text style={[styles.PropertiesTextFirst,{margin:type=='Bean'?SPACING.space_4+SPACING.space_2:0}]}>{ingredients}</Text>
+                  <Text style={styles.PropertiesTextFirst}>{ingredients}</Text>
                 </View>
               </View>
             </View>
@@ -135,12 +146,38 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  ImageInfoOuterContainer: {},
-  ImageInfoInnerConatiner: {},
-  InfoContainerRow: {},
-  ItemTitleText: {},
-  ItemSubTitle: {},
-  ItemPropertiesContainer:{},
-  ProperFirst:{}
+  ImageInfoOuterContainer: {
+    paddingVertical:SPACING.space_24,
+    paddingHorizontal:SPACING.space_30,
+    backgroundColor:COLORS.primaryBlackRGBA,
+    borderTopLeftRadius:BORDERRADIUS.radius_20,
+    borderTopRightRadius:BORDERRADIUS.radius_20
+  },
+  ImageInfoInnerConatiner: {
+    justifyContent:'space-between',
+    gap:SPACING.space_15
+  },
+  InfoContainerRow: {
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center'
+  },
+  ItemTitleText: {
+    fontFamily:FONTFAMILY.poppins_medium,
+    fontSize:FONTSIZE.size_24,
+    color:COLORS.primaryWhiteHex
+  },
+  ItemSubTitle: {
+    fontFamily:FONTFAMILY.poppins_semibold,
+    fontSize:FONTSIZE.size_12,
+    color:COLORS.primaryWhiteHex
+  },
+  ItemPropertiesContainer: {
+    flexDirection:'row',
+    alignItems: 'center',
+    gap:SPACING.space_20
+  },
+  ProperFirst: {},
+  PropertiesTextFirst: {},
 });
 export default ImageBackgroundInfo;
