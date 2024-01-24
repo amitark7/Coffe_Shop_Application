@@ -54,16 +54,17 @@ const DetailsScreen = ({navigation, route}: any) => {
     special_ingredient,
   }: any) => {
     addToCart({
-    id,
-    index,
-    name,
-    type,
-    rosted,
-    imagelink_square,
-    special_ingredient,
-    prices:[{...price,quantity:1}],
-    })
+      id,
+      index,
+      name,
+      type,
+      rosted,
+      imagelink_square,
+      special_ingredient,
+      prices: [{...price, quantity: 1}],
+    });
     calculateCartPrice();
+    navigation.navigate('Cart')
   };
   return (
     <View style={styles.ScreenContainer}>
@@ -138,7 +139,18 @@ const DetailsScreen = ({navigation, route}: any) => {
         </View>
         <PaymentFooter
           price={price}
-          buttonPressHandler={() => {}}
+          buttonPressHandler={() => {
+            addToCartHandler({
+              id:ItemOfIndex.id,
+              index:ItemOfIndex.index,
+              type:ItemOfIndex.type,
+              name:ItemOfIndex.name,
+              rosted:ItemOfIndex.roasted,
+              imagelink_square:ItemOfIndex.imagelink_square,
+              special_ingredient:ItemOfIndex.special_ingredient,
+              price:price
+            })
+          }}
           buttonTitle="Add to Cart"
         />
       </ScrollView>
