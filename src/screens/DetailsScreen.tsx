@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
   },
   ScrollViewFlex: {
     flexGrow: 1,
+    justifyContent:'space-between'
   },
   FooterInfoArea: {
     padding: SPACING.space_20,
