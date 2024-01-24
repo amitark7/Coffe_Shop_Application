@@ -3,7 +3,7 @@ import React from 'react'
 
 interface ImageBackgroundInfoProp{
   EnableBackHandler:boolean;
-  imageLink:ImageProps;
+  imagelink_portrait:ImageProps;
   type:string;
   id: string;
   favorite: boolean;
@@ -18,7 +18,7 @@ interface ImageBackgroundInfoProp{
 }
 const ImageBackgroundInfo:React.FC<ImageBackgroundInfoProp> = ({
   EnableBackHandler,
-  imageLink,
+  imagelink_portrait,
   type,
   id,
   favorite,
