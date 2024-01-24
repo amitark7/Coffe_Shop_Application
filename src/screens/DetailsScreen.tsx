@@ -9,7 +9,13 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useStore} from '../store/store';
-import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
+import {
+  BORDERRADIUS,
+  COLORS,
+  FONTFAMILY,
+  FONTSIZE,
+  SPACING,
+} from '../theme/theme';
 import ImageBackgroundInfo from '../components/ImageBackgroundInfo';
 import PaymentFooter from '../components/PaymentFooter';
 
@@ -73,7 +79,7 @@ const DetailsScreen = ({navigation, route}: any) => {
           <View style={styles.SizeOuterContainer}>
             {ItemOfIndex.prices.map((data: any) => (
               <TouchableOpacity
-              onPress={()=>setPrice(data)}
+                onPress={() => setPrice(data)}
                 style={[
                   styles.SizeBox,
                   {
@@ -104,7 +110,11 @@ const DetailsScreen = ({navigation, route}: any) => {
             ))}
           </View>
         </View>
-        <PaymentFooter price={price} buttonPressHandler={()=>{}} buttonTitle='Add to Cart'/>
+        <PaymentFooter
+          price={price}
+          buttonPressHandler={() => {}}
+          buttonTitle="Add to Cart"
+        />
       </ScrollView>
     </View>
   );
@@ -135,23 +145,22 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   SizeOuterContainer: {
-    flex:1,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    gap:SPACING.space_20
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: SPACING.space_20,
   },
   SizeBox: {
-    flex:1,
-    backgroundColor:COLORS.primaryDarkGreyHex,
-    alignItems:'center',
-    justifyContent:'center',
-    height:SPACING.space_24*2,
-    borderRadius:BORDERRADIUS.radius_10,
-    borderWidth:2
-
+    flex: 1,
+    backgroundColor: COLORS.primaryDarkGreyHex,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: SPACING.space_24 * 2,
+    borderRadius: BORDERRADIUS.radius_10,
+    borderWidth: 2,
   },
   SizeText: {
-    fontFamily:FONTFAMILY.poppins_medium
+    fontFamily: FONTFAMILY.poppins_medium,
   },
 });
 export default DetailsScreen;
