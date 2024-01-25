@@ -255,7 +255,7 @@ const HomeScreen = ({navigation}:any) => {
           horizontal
           showsHorizontalScrollIndicator={false}
           data={BeansList}
-          contentContainerStyle={styles.FlatListContainer}
+          contentContainerStyle={[styles.FlatListContainer,{marginBottom:tabBarHeigtht}]}
           keyExtractor={item => item.id}
           renderItem={({item}) => {
             return (
