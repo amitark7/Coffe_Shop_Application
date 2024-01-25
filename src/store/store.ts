@@ -168,6 +168,29 @@ export const useStore = create(
             }
           }),
         ),
+        
+      addToOrderListFromCart: () =>
+        set(
+          produce(state => {
+            let temp = state.CartList.reduce(
+              (accumalator: number, CurentValue: any) =>
+                accumalator + parseFloat(CurentValue.ItemPrice),
+              0,
+            );
+            let currentCartListTotalPrice = temp.toFixed(2).toString();
+            if (state.OrderHistoryList.length > 0) {
+              state.OrderHistoryList.unshift({
+                OrderDate:
+                  new Date().toDateString() +
+                  ' ' +
+                  new Date().toLocaleTimeString(),
+                CartList: state.CartList,
+                CartListPrice: temp.toFixed(2).toString(),
+              });
+            }
+            state.CartList = [];
+          }),
+        ),
     }),
     {
       name: 'coffes-app',

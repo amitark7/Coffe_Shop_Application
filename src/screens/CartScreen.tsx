@@ -4,6 +4,9 @@ import { useStore } from '../store/store'
 
 const CartScreen = () => {
   const cartList=useStore((state:any)=>state.CartList)
+  const CartPrice=useStore((state:any)=>state.CartPrice)
+  const increamentCartListQuantity=useStore((state:any)=>state.increamentCartListQuantity)
+  const decrementCartListQuantity=useStore((state:any)=>state.decrementCartListQuantity)
  
   return (
     <View>
