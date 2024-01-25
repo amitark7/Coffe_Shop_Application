@@ -1,5 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+
+interface CartItemProp{
+  id:string;
+  title: string;
+  rosted:string;
+  imagelink_square:ImageProps;
+  prices:any;
+  special_ingredient:string;
+  type:string;
+  incrementCartItemQuantityHandler:()=>{}
+  decrementCartItemQuantityHandler:()=>{}
+}
 
 const CartItem = () => {
   return (
