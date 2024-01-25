@@ -115,7 +115,6 @@ const HomeScreen = ({navigation}:any) => {
     });
     calculateCartPrice();
     ToastAndroid.showWithGravity(`${name} is Added to Cart`,ToastAndroid.SHORT,ToastAndroid.CENTER)
-    navigation.navigate('Cart')
   };
   return (
     <View style={styles.ScreenContainer}>

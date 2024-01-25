@@ -18,8 +18,8 @@ export const useStore = create(
         set(
           produce(state => {
             let found = false;
-            for (let i = 0; i < cartItem.length; i++) {
-              if (state.CartList[i].id === cartItem.id) {
+            for (let i = 0; i < state.CartList.length; i++) {
+              if (state.CartList[i].id == cartItem.id) {
                 found = true;
                 let size = false;
                 for (let j = 0; j < state.CartList[i].prices.length; j++) {
@@ -95,35 +95,38 @@ export const useStore = create(
             }
           }),
         ),
-      deleteFromFavoriteList:(type:string,id:string)=>set(produce(state=>{
-        if(type=='Coffee'){
-          for (let i = 0; i < state.CoffeeList.length; i++) {
-            if (state.CoffeeList[i].id == id) {
-              if (state.CoffeeList[i].favourite == true) {
-                state.CoffeeList[i].favourite = false;
+      deleteFromFavoriteList: (type: string, id: string) =>
+        set(
+          produce(state => {
+            if (type == 'Coffee') {
+              for (let i = 0; i < state.CoffeeList.length; i++) {
+                if (state.CoffeeList[i].id == id) {
+                  if (state.CoffeeList[i].favourite == true) {
+                    state.CoffeeList[i].favourite = false;
+                  }
+                  break;
+                }
               }
-              break;
-            }
-          }
-        }else if(type=='Bean'){
-          for (let i = 0; i < state.BeansList.length; i++) {
-            if (state.BeansList[i].id == id) {
-              if (state.BeansList[i].favourite == true) {
-                state.BeansList[i].favourite = false;
+            } else if (type == 'Bean') {
+              for (let i = 0; i < state.BeansList.length; i++) {
+                if (state.BeansList[i].id == id) {
+                  if (state.BeansList[i].favourite == true) {
+                    state.BeansList[i].favourite = false;
+                  }
+                  break;
+                }
               }
-              break;
             }
-          }
-        }
-        let spliceIndex=-1;
-        for(let i=0; i<state.FavoritesList.length; i++){
-          if(state.FavoritesList[i].id==id){
-            spliceIndex=i;
-            break;
-          }
-        }
-        state.FavoritesList.splice(spliceIndex,1);
-      }))
+            let spliceIndex = -1;
+            for (let i = 0; i < state.FavoritesList.length; i++) {
+              if (state.FavoritesList[i].id == id) {
+                spliceIndex = i;
+                break;
+              }
+            }
+            state.FavoritesList.splice(spliceIndex, 1);
+          }),
+        ),
     }),
     {
       name: 'coffes-app',
