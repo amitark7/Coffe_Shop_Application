@@ -4,7 +4,7 @@ import { useStore } from '../store/store'
 
 const CartScreen = () => {
   const cartList=useStore((state:any)=>state.CartList)
-  console.log(cartList.length);
+  console.log(cartList.length,cartList);
   
   return (
     <View>
