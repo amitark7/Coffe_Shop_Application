@@ -13,6 +13,8 @@ const EmptyListConatiner: React.FC<EmptyListConatinerProp> = ({title}) => {
       <LottieView
       style={styles.lottiStyle}
       source={require('../lottie/coffecup.json')}
+      autoPlay
+      loop
       />
       <Text style={styles.lottieText}>{title}</Text>
     </View>
