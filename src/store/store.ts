@@ -127,6 +127,34 @@ export const useStore = create(
             state.FavoritesList.splice(spliceIndex, 1);
           }),
         ),
+      increamentCartListQuantity: (id: string, size: string) =>
+        set(
+          produce(state => {
+            for (let i = 0; i < state.CartList.length; i++) {
+              if (state.CartList[i].id == id) {
+                for (let j = 0; j < state.CartList[i].prices.length; j++) {
+                  if (state.CartList[i].prices[j].size == size) {
+                    state.CartList[i].prices[j].quantity++;
+                  }
+                }
+              }
+            }
+          }),
+        ),
+      decrementCartListQuantity: (id: string, size: string) =>
+        set(
+          produce(state => {
+            for (let i = 0; i < state.CartList.length; i++) {
+              if (state.CartList[i].id == id) {
+                for (let j = 0; j < state.CartList[i].prices.length; j++) {
+                  if (state.CartList[i].prices[j].size == size) {
+                    state.CartList[i].prices[j].quantity--;
+                  }
+                }
+              }
+            }
+          }),
+        ),
     }),
     {
       name: 'coffes-app',
