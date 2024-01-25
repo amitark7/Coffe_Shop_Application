@@ -29,7 +29,7 @@ const CartScreen = () => {
           <View style={styles.ItemContainer}>
             <HeaderBar title="Cart" />
             {
-              CartList.length==0?<EmptyListConatiner/>:''
+              CartList.length==0?<EmptyListConatiner title='Cart is Empty'/>:''
             }
           </View>
         </View>
