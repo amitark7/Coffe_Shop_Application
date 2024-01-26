@@ -93,11 +93,13 @@ const CartItem: React.FC<CartItemProp> = ({
                   />
                 </TouchableOpacity>
                 <View style={styles.CartItemQuantityContainer}>
-                  <Text style={styles.CartItemQuantity}>{data.quantity}</Text>
+                  <Text style={styles.CartItemQuantityTxt}>
+                    {data.quantity}
+                  </Text>
                 </View>
                 <TouchableOpacity style={styles.CartItemIcon}>
                   <CustomIcon
-                    name="minus"
+                    name="add"
                     color={COLORS.primaryWhiteHex}
                     size={FONTSIZE.size_10}
                   />
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
   SizeBox: {
     backgroundColor: COLORS.primaryBlackHex,
     height: 40,
-    width: 100,
+    width: 80,
     borderRadius: BORDERRADIUS.radius_10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -196,15 +198,20 @@ const styles = StyleSheet.create({
     padding: SPACING.space_12,
     borderRadius: BORDERRADIUS.radius_10,
   },
-  CartItemQuantityContainer:{
-    backgroundColor:COLORS.primaryBlackHex,
-    width:80,
-    borderRadius:BORDERRADIUS.radius_10,
-    borderWidth:2,
-    borderColor:COLORS.primaryOrangeHex,
-    alignItems:'center',
-    paddingVertical:SPACING.space_4
-  }
+  CartItemQuantityContainer: {
+    backgroundColor: COLORS.primaryBlackHex,
+    width: 60,
+    borderRadius: BORDERRADIUS.radius_10,
+    borderWidth: 2,
+    borderColor: COLORS.primaryOrangeHex,
+    alignItems: 'center',
+    paddingVertical: SPACING.space_4,
+  },
+  CartItemQuantityTxt: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_16,
+    color: COLORS.primaryWhiteHex,
+  },
 });
 
 export default CartItem;
