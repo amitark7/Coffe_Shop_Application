@@ -1,5 +1,7 @@
-import {ImageProps, StyleSheet, Text, View} from 'react-native';
+import {Image, ImageProps, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import LinearGradient from 'react-native-linear-gradient';
+import {COLORS} from '../theme/theme';
 
 interface CartItemProp {
   id: string;
@@ -9,7 +11,7 @@ interface CartItemProp {
   prices: any;
   special_ingredient: string;
   type: string;
-  incrementCartItemQuantityHandler:any;
+  incrementCartItemQuantityHandler: any;
   decrementCartItemQuantityHandler: any;
 }
 
@@ -26,11 +28,26 @@ const CartItem: React.FC<CartItemProp> = ({
 }) => {
   return (
     <View>
-      <Text>CartItem</Text>
+      {prices.length != 1 ? (
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 1}}
+          colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
+          style={styles.cartItemLinearStyle}>
+          <View>
+            <Image source={imagelink_square} style={styles.CartItemImage} />
+          </View>
+        </LinearGradient>
+      ) : (
+        <></>
+      )}
     </View>
   );
 };
 
-export default CartItem;
+const styles = StyleSheet.create({
+  cartItemLinearStyle: {},
+  CartItemImage: {},
+});
 
-const styles = StyleSheet.create({});
+export default CartItem;
