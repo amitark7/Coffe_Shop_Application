@@ -109,7 +109,16 @@ const CartItem: React.FC<CartItemProp> = ({
           ))}
         </LinearGradient>
       ) : (
-        <></>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 1}}
+          colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
+          style={styles.cartItemSingleLinearStyle}>
+            <View>
+              <Image source={imagelink_square} style={styles.CartItemSingleImage}/>
+            </View>
+
+        </LinearGradient>
       )}
     </View>
   );
@@ -212,6 +221,18 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_16,
     color: COLORS.primaryWhiteHex,
   },
+  cartItemSingleLinearStyle:{
+    flexDirection:'row',
+    alignItems:'center',
+    padding:SPACING.space_12,
+    gap:SPACING.space_12,
+    borderRadius:BORDERRADIUS.radius_25
+  },
+  CartItemSingleImage:{
+    height: 150,
+    width: 150,
+    borderRadius: BORDERRADIUS.radius_20,
+  }
 });
 
 export default CartItem;
