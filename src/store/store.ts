@@ -142,7 +142,7 @@ export const useStore = create(
             }
           }),
         ),
-      
+
       decrementCartListQuantity: (id: string, size: string) =>
         set(
           produce(state => {
