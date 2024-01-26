@@ -1,4 +1,11 @@
-import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {useStore} from '../store/store';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
@@ -8,8 +15,10 @@ import EmptyListConatiner from '../components/EmptyListConatiner';
 import PaymentFooter from '../components/PaymentFooter';
 import CartItem from '../components/CartItem';
 
-const CartScreen = ({navigation,route}:any) => {
+const CartScreen = ({navigation, route}: any) => {
   const CartList = useStore((state: any) => state.CartList);
+  console.log(CartList);
+  
   const CartPrice = useStore((state: any) => state.CartPrice);
   const increamentCartListQuantity = useStore(
     (state: any) => state.increamentCartListQuantity,
@@ -21,9 +30,9 @@ const CartScreen = ({navigation,route}:any) => {
 
   const TabBarHeight = useBottomTabBarHeight();
 
-  const ButtonPressHandler=()=>{
-    navigation.push('Payment')
-  }
+  const ButtonPressHandler = () => {
+    navigation.push('Payment');
+  };
 
   return (
     <View style={styles.ScreenContainer}>
@@ -38,27 +47,33 @@ const CartScreen = ({navigation,route}:any) => {
               <EmptyListConatiner title="Cart is Empty" />
             ) : (
               <View style={styles.ListItemContainer}>
-                {
-                  CartList.map((data:any)=>(
-                    <TouchableOpacity onPress={()=>{}} key={data.id}>
-                      <CartItem
+                {CartList.map((data: any) => (
+                  <TouchableOpacity onPress={() => {}} key={data.id}>
+                    <CartItem
                       id={data.id}
-                      title={data.title}
+                      name={data.name}
                       rosted={data.rosted}
                       imagelink_square={data.imagelink_square}
                       prices={data.prices}
                       special_ingredient={data.special_ingredient}
                       type={data.type}
-                      incrementCartItemQuantityHandler={()=>{}}
-                      decrementCartItemQuantityHandler={()=>{}}
-                      />
-                    </TouchableOpacity>
-                  ))
-                }
+                      incrementCartItemQuantityHandler={() => {}}
+                      decrementCartItemQuantityHandler={() => {}}
+                    />
+                  </TouchableOpacity>
+                ))}
               </View>
             )}
           </View>
-          {CartList.length!=0?<PaymentFooter buttonPressHandler={ButtonPressHandler} buttonTitle='Pay' price={{price:CartPrice,currency:'$'}}/>:<></>}
+          {CartList.length != 0 ? (
+            <PaymentFooter
+              buttonPressHandler={ButtonPressHandler}
+              buttonTitle="Pay"
+              price={{price: CartPrice, currency: '$'}}
+            />
+          ) : (
+            <></>
+          )}
         </View>
       </ScrollView>
     </View>
@@ -78,11 +93,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   ItemContainer: {
-    flex:1
+    flex: 1,
   },
-  ListItemContainer:{
-    paddingHorizontal:SPACING.space_20,
-    gap:SPACING.space_20
-  }
+  ListItemContainer: {
+    paddingHorizontal: SPACING.space_20,
+    gap: SPACING.space_20,
+  },
 });
 export default CartScreen;

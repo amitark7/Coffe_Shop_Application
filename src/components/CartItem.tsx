@@ -1,11 +1,17 @@
 import {Image, ImageProps, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {BORDERRADIUS, COLORS, SPACING} from '../theme/theme';
+import {
+  BORDERRADIUS,
+  COLORS,
+  FONTFAMILY,
+  FONTSIZE,
+  SPACING,
+} from '../theme/theme';
 
 interface CartItemProp {
   id: string;
-  title: string;
+  name: string;
   rosted: string;
   imagelink_square: ImageProps;
   prices: any;
@@ -17,7 +23,7 @@ interface CartItemProp {
 
 const CartItem: React.FC<CartItemProp> = ({
   id,
-  title,
+  name,
   rosted,
   imagelink_square,
   prices,
@@ -26,6 +32,8 @@ const CartItem: React.FC<CartItemProp> = ({
   incrementCartItemQuantityHandler,
   decrementCartItemQuantityHandler,
 }) => {
+  console.log(name, id, imagelink_square, prices.length);
+
   return (
     <View>
       {prices.length != 1 ? (
@@ -34,9 +42,29 @@ const CartItem: React.FC<CartItemProp> = ({
           end={{x: 1, y: 1}}
           colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
           style={styles.cartItemLinearStyle}>
-          <View>
+          <View style={styles.CartItemRow}>
             <Image source={imagelink_square} style={styles.CartItemImage} />
+            <View style={styles.CartItemInfo}>
+              <View>
+                <Text style={styles.CartItemTitle}>{name}</Text>
+                <Text style={styles.CartItemSubTitle}>
+                  {special_ingredient}
+                </Text>
+              </View>
+              <View style={styles.rostedContainer}>
+                <Text style={styles.RostedTxt}>{rosted}</Text>
+              </View>
+            </View>
           </View>
+          {prices.map((data: any, index: any) => (
+            <View key={index.toString()} style={styles.CartItemSizeContainer}>
+              <View style={styles.CartItemValueContainer}>
+                <View style={styles.SizeBox}>
+                  <Text style={[styles.SizeTxt,{fontSize:type=='Bean'?FONTSIZE.size_12:FONTSIZE.size_16}]}>{data.size}</Text>
+                </View>
+              </View>
+            </View>
+          ))}
         </LinearGradient>
       ) : (
         <></>
@@ -47,15 +75,53 @@ const CartItem: React.FC<CartItemProp> = ({
 
 const styles = StyleSheet.create({
   cartItemLinearStyle: {
-    flex:1,
-    gap:SPACING.space_12,
-    padding:SPACING.space_12,
-    borderRadius:BORDERRADIUS.radius_25 
+    flex: 1,
+    gap: SPACING.space_12,
+    padding: SPACING.space_12,
+    borderRadius: BORDERRADIUS.radius_25,
   },
   CartItemImage: {
-    height:130,
-    width:130
+    height: 130,
+    width: 130,
+    borderRadius: BORDERRADIUS.radius_20,
   },
+  CartItemRow: {
+    flexDirection: 'row',
+    gap: SPACING.space_12,
+    flex: 1,
+  },
+  CartItemInfo: {
+    flex: 1,
+    paddingVertical: SPACING.space_4,
+    justifyContent: 'space-between',
+  },
+  CartItemTitle: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_18,
+    color: COLORS.primaryWhiteHex,
+  },
+  CartItemSubTitle: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_12,
+    color: COLORS.secondaryLightGreyHex,
+  },
+  rostedContainer: {
+    height: 50,
+    width: 50 * 2 + SPACING.space_20,
+    borderRadius: BORDERRADIUS.radius_15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.primaryDarkGreyHex,
+  },
+  RostedTxt: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_10,
+    color: COLORS.primaryWhiteHex,
+  },
+  CartItemSizeContainer: {},
+  CartItemValueContainer: {},
+  SizeBox: {},
+  SizeTxt:{}
 });
 
 export default CartItem;
