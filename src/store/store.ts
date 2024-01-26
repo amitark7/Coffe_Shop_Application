@@ -163,6 +163,7 @@ export const useStore = create(
                         state.CartList.splice(i, 1);
                       }
                     }
+                    break;
                   }
                 }
               }
