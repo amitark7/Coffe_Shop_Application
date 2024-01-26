@@ -117,7 +117,12 @@ const CartItem: React.FC<CartItemProp> = ({
             <View>
               <Image source={imagelink_square} style={styles.CartItemSingleImage}/>
             </View>
-
+          <View style={styles.CatItemSingleInfo}>
+              <View>
+                <Text style={styles.CartItemTitle}>{name}</Text>
+                <Text style={styles.CartItemSubTitle}>{special_ingredient}</Text>
+              </View>
+            </View>
         </LinearGradient>
       )}
     </View>
@@ -232,6 +237,9 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
     borderRadius: BORDERRADIUS.radius_20,
+  },
+  CatItemSingleInfo:{
+    
   }
 });
 
