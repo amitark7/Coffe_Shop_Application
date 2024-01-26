@@ -18,7 +18,7 @@ import CartItem from '../components/CartItem';
 const CartScreen = ({navigation, route}: any) => {
   const CartList = useStore((state: any) => state.CartList);
   console.log(CartList);
-  
+
   const CartPrice = useStore((state: any) => state.CartPrice);
   const increamentCartListQuantity = useStore(
     (state: any) => state.increamentCartListQuantity,
@@ -32,6 +32,15 @@ const CartScreen = ({navigation, route}: any) => {
 
   const ButtonPressHandler = () => {
     navigation.push('Payment');
+  };
+
+  const decrementCartListQuantityHandler = (id: string, size: string) => {
+    decrementCartListQuantity(id, size);
+    calculateCartPrice();
+  };
+  const increamentCartListQuantityHandler = (id: string, size: string) => {
+    increamentCartListQuantity(id, size);
+    calculateCartPrice();
   };
 
   return (
@@ -57,8 +66,12 @@ const CartScreen = ({navigation, route}: any) => {
                       prices={data.prices}
                       special_ingredient={data.special_ingredient}
                       type={data.type}
-                      incrementCartItemQuantityHandler={() => {}}
-                      decrementCartItemQuantityHandler={() => {}}
+                      incrementCartItemQuantityHandler={
+                        increamentCartListQuantityHandler
+                      }
+                      decrementCartItemQuantityHandler={
+                        decrementCartListQuantityHandler
+                      }
                     />
                   </TouchableOpacity>
                 ))}

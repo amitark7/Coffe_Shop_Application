@@ -142,6 +142,7 @@ export const useStore = create(
             }
           }),
         ),
+      
       decrementCartListQuantity: (id: string, size: string) =>
         set(
           produce(state => {
@@ -168,7 +169,7 @@ export const useStore = create(
             }
           }),
         ),
-        
+
       addToOrderListFromCart: () =>
         set(
           produce(state => {
