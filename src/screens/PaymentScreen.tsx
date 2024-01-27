@@ -50,8 +50,11 @@ const PaymentScreen = () => {
               size={FONTSIZE.size_16}
             />
           </TouchableOpacity>
-          <Text style={styles.HeaderTxt}>Payment</Text>
+          <Text style={styles.HeaderTxt}>Payments</Text>
           <View style={styles.EmptyView}/>
+        </View>
+        <View style={styles.PaymentOptionsContainer}>
+
         </View>
       </ScrollView>
     </View>
@@ -81,6 +84,10 @@ const styles = StyleSheet.create({
   EmptyView:{
     height:SPACING.space_36,
     width:SPACING.space_36
+  },
+  PaymentOptionsContainer:{
+    padding:SPACING.space_15,
+    gap:SPACING.space_15
   }
 });
 export default PaymentScreen;
