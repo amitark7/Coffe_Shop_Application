@@ -62,7 +62,7 @@ const FavoritesScreen = ({navigation}: any) => {
                       average_rating={data.average_rating}
                       description={data.description}
                       favourite={data.favourite}
-                      rating_count={data.ratings_count}
+                      ratings_count={data.ratings_count}
                       ingredients={data.ingredients}
                       ToogleFavoriteItem={ToggleFavorite}
                     />
