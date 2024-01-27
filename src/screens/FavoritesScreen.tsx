@@ -36,7 +36,7 @@ const FavoritesScreen = ({navigation}: any) => {
         <View
           style={[styles.ScrollInnerView, {marginBottom: TabBarBottomHeight}]}>
           <View style={styles.ItemContainer}>
-            <HeaderBar title="Cart" />
+            <HeaderBar title="Favorites" />
             {FavoritesList.length == 0 ? (
               <EmptyListConatiner title="No Favorites" />
             ) : (
