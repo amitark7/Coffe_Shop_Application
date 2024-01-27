@@ -13,6 +13,7 @@ import HeaderBar from '../components/HeaderBar';
 import EmptyListConatiner from '../components/EmptyListConatiner';
 import {COLORS, SPACING} from '../theme/theme';
 import PaymentFooter from '../components/PaymentFooter';
+import FavoritesCartItem from '../components/FavoritesCartItem';
 
 const FavoritesScreen = ({navigation}: any) => {
   const FavoritesList = useStore((state: any) => state.FavoritesList);
@@ -50,7 +51,9 @@ const FavoritesScreen = ({navigation}: any) => {
                         type: data.type,
                       })
                     }
-                    key={data.id}></TouchableOpacity>
+                    key={data.id}>
+                    <FavoritesCartItem />
+                  </TouchableOpacity>
                 ))}
               </View>
             )}
