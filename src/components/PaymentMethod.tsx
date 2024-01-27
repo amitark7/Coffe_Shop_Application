@@ -8,7 +8,12 @@ interface PaymentMethodProp {
   isIcon: boolean;
 }
 
-const PaymentMethod:React.FC<PaymentMethodProp> = () => {
+const PaymentMethod: React.FC<PaymentMethodProp> = ({
+  paymentMode,
+  name,
+  icon,
+  isIcon,
+}) => {
   return (
     <View>
       <Text>PaymentMethod</Text>
