@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {COLORS, FONTSIZE} from '../theme/theme';
+import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import GradientBGIcon from '../components/GradientBGIcon';
 
 const PaymentList = [
@@ -50,6 +50,8 @@ const PaymentScreen = () => {
               size={FONTSIZE.size_16}
             />
           </TouchableOpacity>
+          <Text style={styles.HeaderTxt}>Payment</Text>
+          <View style={styles.EmptyView}/>
         </View>
       </ScrollView>
     </View>
@@ -64,6 +66,21 @@ const styles = StyleSheet.create({
   ScrollViewFlex: {
     flexGrow: 1,
   },
-  HeaderConatiner: {},
+  HeaderConatiner: {
+    paddingHorizontal:SPACING.space_24,
+    paddingVertical:SPACING.space_15,
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between'
+  },
+  HeaderTxt:{
+    fontFamily:FONTFAMILY.poppins_semibold,
+    fontSize:FONTSIZE.size_20,
+    color:COLORS.primaryWhiteHex
+  },
+  EmptyView:{
+    height:SPACING.space_36,
+    width:SPACING.space_36
+  }
 });
 export default PaymentScreen;
