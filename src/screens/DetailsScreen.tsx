@@ -26,9 +26,9 @@ const DetailsScreen = ({navigation, route}: any) => {
 
   const [price, setPrice] = useState(ItemOfIndex.prices[0]);
   const [fulldesc, setFulldesc] = useState(false);
-  const addToFavorteList = useStore((state: any) => state.addToFavorteList);
   const addToCart = useStore((state: any) => state.addToCart);
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
+  const addToFavorteList = useStore((state: any) => state.addToFavorteList);
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
   );
