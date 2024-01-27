@@ -1,10 +1,17 @@
-import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {useStore} from '../store/store';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListConatiner from '../components/EmptyListConatiner';
-import { COLORS } from '../theme/theme';
+import {COLORS, SPACING} from '../theme/theme';
 import PaymentFooter from '../components/PaymentFooter';
 
 const FavoritesScreen = ({navigation}: any) => {
@@ -26,14 +33,15 @@ const FavoritesScreen = ({navigation}: any) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
-        <View style={[styles.ScrollInnerView, {marginBottom: TabBarBottomHeight}]}>
+        <View
+          style={[styles.ScrollInnerView, {marginBottom: TabBarBottomHeight}]}>
           <View style={styles.ItemContainer}>
             <HeaderBar title="Cart" />
-            {CartList.length == 0 ? (
-              <EmptyListConatiner title="Cart is Empty" />
+            {FavoritesList.length == 0 ? (
+              <EmptyListConatiner title="No Favorites" />
             ) : (
               <View style={styles.ListItemContainer}>
-                {CartList.map((data: any) => (
+                {FavoritesList.map((data: any) => (
                   <TouchableOpacity
                     onPress={() =>
                       navigation.push('Details', {
@@ -42,23 +50,7 @@ const FavoritesScreen = ({navigation}: any) => {
                         type: data.type,
                       })
                     }
-                    key={data.id}>
-                    <CartItem
-                      id={data.id}
-                      name={data.name}
-                      rosted={data.rosted}
-                      imagelink_square={data.imagelink_square}
-                      prices={data.prices}
-                      special_ingredient={data.special_ingredient}
-                      type={data.type}
-                      incrementCartItemQuantityHandler={
-                        increamentCartListQuantityHandler
-                      }
-                      decrementCartItemQuantityHandler={
-                        decrementCartListQuantityHandler
-                      }
-                    />
-                  </TouchableOpacity>
+                    key={data.id}></TouchableOpacity>
                 ))}
               </View>
             )}
