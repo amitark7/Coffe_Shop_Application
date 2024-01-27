@@ -7,14 +7,14 @@ import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/them
 interface FavoritesCartItemProp {
   id: string;
   name: string;
-  rosted: string;
-  imagelink_square: ImageProps;
+  roasted: string;
+  imagelink_portrait: ImageProps;
   special_ingredient: string;
   type: string;
   average_rating: number;
   description: string;
   favourite: boolean;
-  rating_count: string;
+  ratings_count: string;
   ingredients: string;
   ToogleFavoriteItem: any;
 }
@@ -22,20 +22,33 @@ interface FavoritesCartItemProp {
 const FavoritesCartItem: React.FC<FavoritesCartItemProp> = ({
   id,
   name,
-  rosted,
-  imagelink_square,
+  roasted,
+  imagelink_portrait,
   special_ingredient,
   type,
   average_rating,
   description,
   favourite,
-  rating_count,
+  ratings_count,
   ingredients,
   ToogleFavoriteItem,
 }) => {
   return (
     <View style={styles.CardContainer}>
-      <ImageBackgroundInfo />
+      <ImageBackgroundInfo 
+       EnableBackHandler={false}
+       imagelink_portrait={imagelink_portrait}
+       type={type}
+       id={id}
+       favorite={favourite}
+       name={name}
+       special_ingredient={special_ingredient}
+       ingredients={ingredients}
+       average_rating={average_rating}
+       ratings_count={ratings_count}
+       roasted={roasted}
+       ToggleFavorite={ToogleFavoriteItem}
+      />
       <LinearGradient
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}

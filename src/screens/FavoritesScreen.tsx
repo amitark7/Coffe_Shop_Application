@@ -55,7 +55,7 @@ const FavoritesScreen = ({navigation}: any) => {
                     <FavoritesCartItem
                       id={data.id}
                       name={data.name}
-                      roasted={data.rosted}
+                      roasted={data.roasted}
                       imagelink_portrait={data.imagelink_portrait}
                       special_ingredient={data.special_ingredient}
                       type={data.type}
