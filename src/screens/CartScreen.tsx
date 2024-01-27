@@ -31,7 +31,9 @@ const CartScreen = ({navigation, route}: any) => {
   const TabBarHeight = useBottomTabBarHeight();
 
   const ButtonPressHandler = () => {
-    navigation.push('Payment');
+    navigation.push('Payment',{
+      amount:CartPrice
+    });
   };
 
   const decrementCartListQuantityHandler = (id: string, size: string) => {
