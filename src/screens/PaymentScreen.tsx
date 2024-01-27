@@ -58,7 +58,7 @@ const PaymentScreen = () => {
     {
       PaymentList.map((data:any)=>(
         <TouchableOpacity key={data.name}>
-          <PaymentMethod/>
+          <PaymentMethod paymentMode={paymentMode} name={data.name} icon={data.icon} isIcon={data.isIcon}/>
         </TouchableOpacity>
       ))
     }
