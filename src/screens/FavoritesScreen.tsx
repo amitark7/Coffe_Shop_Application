@@ -52,7 +52,20 @@ const FavoritesScreen = ({navigation}: any) => {
                       })
                     }
                     key={data.id}>
-                    <FavoritesCartItem />
+                    <FavoritesCartItem
+                      id={data.id}
+                      name={data.name}
+                      rosted={data.rosted}
+                      imagelink_square={data.imagelink_square}
+                      special_ingredient={data.special_ingredient}
+                      type={data.type}
+                      average_rating={data.average_rating}
+                      description={data.description}
+                      favourite={data.favourite}
+                      rating_count={data.ratings_count}
+                      ingredients={data.ingredients}
+                      ToogleFavoriteItem={ToggleFavorite}
+                    />
                   </TouchableOpacity>
                 ))}
               </View>
