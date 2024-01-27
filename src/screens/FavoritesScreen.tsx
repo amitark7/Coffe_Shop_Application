@@ -56,7 +56,7 @@ const FavoritesScreen = ({navigation}: any) => {
                       id={data.id}
                       name={data.name}
                       rosted={data.rosted}
-                      imagelink_square={data.imagelink_square}
+                      imagelink_portrait={data.imagelink_portrait}
                       special_ingredient={data.special_ingredient}
                       type={data.type}
                       average_rating={data.average_rating}
