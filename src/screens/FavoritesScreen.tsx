@@ -1,12 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { useStore } from '../store/store'
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs'
+import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {useStore} from '../store/store';
+import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
+import HeaderBar from '../components/HeaderBar';
+import EmptyListConatiner from '../components/EmptyListConatiner';
+import { COLORS } from '../theme/theme';
+import PaymentFooter from '../components/PaymentFooter';
 
-const FavoritesScreen = ({navigation}:any) => {
-
-  const FavoritesList=useStore((state:any)=>state.FavoritesList)
-  const TabBarBottomHeight=useBottomTabBarHeight()
+const FavoritesScreen = ({navigation}: any) => {
+  const FavoritesList = useStore((state: any) => state.FavoritesList);
+  const TabBarBottomHeight = useBottomTabBarHeight();
   const addToFavorteList = useStore((state: any) => state.addToFavorteList);
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
@@ -18,12 +21,72 @@ const FavoritesScreen = ({navigation}:any) => {
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
   return (
-    <View>
-      <Text>FavoritesScreen</Text>
+    <View style={styles.ScreenContainer}>
+      <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.ScrollViewFlex}>
+        <View style={[styles.ScrollInnerView, {marginBottom: TabBarBottomHeight}]}>
+          <View style={styles.ItemContainer}>
+            <HeaderBar title="Cart" />
+            {CartList.length == 0 ? (
+              <EmptyListConatiner title="Cart is Empty" />
+            ) : (
+              <View style={styles.ListItemContainer}>
+                {CartList.map((data: any) => (
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.push('Details', {
+                        id: data.id,
+                        index: data.index,
+                        type: data.type,
+                      })
+                    }
+                    key={data.id}>
+                    <CartItem
+                      id={data.id}
+                      name={data.name}
+                      rosted={data.rosted}
+                      imagelink_square={data.imagelink_square}
+                      prices={data.prices}
+                      special_ingredient={data.special_ingredient}
+                      type={data.type}
+                      incrementCartItemQuantityHandler={
+                        increamentCartListQuantityHandler
+                      }
+                      decrementCartItemQuantityHandler={
+                        decrementCartListQuantityHandler
+                      }
+                    />
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+          </View>
+        </View>
+      </ScrollView>
     </View>
-  )
-}
+  );
+};
 
-export default FavoritesScreen
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  ScreenContainer: {
+    flex: 1,
+    backgroundColor: COLORS.primaryBlackHex,
+  },
+  ScrollViewFlex: {
+    flexGrow: 1,
+  },
+  ScrollInnerView: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  ItemContainer: {
+    flex: 1,
+  },
+  ListItemContainer: {
+    paddingHorizontal: SPACING.space_20,
+    gap: SPACING.space_20,
+  },
+});
+export default FavoritesScreen;
