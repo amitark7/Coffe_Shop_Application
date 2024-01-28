@@ -1,6 +1,7 @@
 package com.coffe_shop
 
 import android.os.Bundle;
+import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -15,6 +16,7 @@ class MainActivity : ReactActivity() {
   override fun getMainComponentName(): String = "Coffe_Shop"
 
   override fun onCreate(savedInstanceState: Bundle?) {
+     SplashScreen.show(this);
     super.onCreate(null)
   }
 

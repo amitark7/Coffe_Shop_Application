@@ -66,7 +66,14 @@ const PaymentScreen = ({navigation, route}: any) => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
-      {showAnimation ? <PopUpAnimation style={styles.lottieAnimation} source={require('../lottie/successful.json')}/> : <></>}
+      {showAnimation ? (
+        <PopUpAnimation
+          style={styles.lottieAnimation}
+          source={require('../lottie/successful.json')}
+        />
+      ) : (
+        <></>
+      )}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
@@ -164,8 +171,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.primaryBlackHex,
   },
-  lottieAnimation:{
-    flex:1
+  lottieAnimation: {
+    flex: 1,
   },
   ScrollViewFlex: {
     flexGrow: 1,
