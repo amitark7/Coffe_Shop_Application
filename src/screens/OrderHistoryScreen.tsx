@@ -1,7 +1,7 @@
 import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {useStore} from '../store/store';
-import {COLORS, SPACING} from '../theme/theme';
+import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListConatiner from '../components/EmptyListConatiner';
@@ -88,6 +88,16 @@ const styles = StyleSheet.create({
     gap: SPACING.space_30,
   },
   DownloadButton:{
-    
+    marginHorizontal:SPACING.space_20,
+    backgroundColor:COLORS.primaryOrangeHex,
+    alignItems:'center',
+    justifyContent:'center',
+    height:SPACING.space_36*2,
+    borderRadius:BORDERRADIUS.radius_20
+  },
+  DownloadButtonTxt:{
+    fontFamily:FONTFAMILY.poppins_semibold,
+    fontSize:FONTSIZE.size_18,
+    color:COLORS.primaryWhiteHex
   }
 });
