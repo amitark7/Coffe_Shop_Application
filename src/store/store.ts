@@ -179,9 +179,18 @@ export const useStore = create(
                 accumalator + parseFloat(CurentValue.ItemPrice),
               0,
             );
-            let currentCartListTotalPrice = temp.toFixed(2).toString();
+
             if (state.OrderHistoryList.length > 0) {
               state.OrderHistoryList.unshift({
+                OrderDate:
+                  new Date().toDateString() +
+                  ' ' +
+                  new Date().toLocaleTimeString(),
+                CartList: state.CartList,
+                CartListPrice: temp.toFixed(2).toString(),
+              });
+            } else {
+              state.OrderHistoryList.push({
                 OrderDate:
                   new Date().toDateString() +
                   ' ' +
@@ -193,6 +202,7 @@ export const useStore = create(
             state.CartList = [];
           }),
         ),
+        
     }),
     {
       name: 'coffes-app',

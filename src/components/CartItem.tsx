@@ -40,8 +40,6 @@ const CartItem: React.FC<CartItemProp> = ({
   incrementCartItemQuantityHandler,
   decrementCartItemQuantityHandler,
 }) => {
-  console.log(name, id, imagelink_square, prices.length);
-
   return (
     <View>
       {prices.length != 1 ? (
@@ -85,9 +83,11 @@ const CartItem: React.FC<CartItemProp> = ({
                 </Text>
               </View>
               <View style={styles.CartItemValueContainer}>
-                <TouchableOpacity style={styles.CartItemIcon} onPress={()=>{
-                  decrementCartItemQuantityHandler(id,data.size)
-                }}>
+                <TouchableOpacity
+                  style={styles.CartItemIcon}
+                  onPress={() => {
+                    decrementCartItemQuantityHandler(id, data.size);
+                  }}>
                   <CustomIcon
                     name="minus"
                     color={COLORS.primaryWhiteHex}
@@ -99,9 +99,11 @@ const CartItem: React.FC<CartItemProp> = ({
                     {data.quantity}
                   </Text>
                 </View>
-                <TouchableOpacity style={styles.CartItemIcon} onPress={()=>{
-                  incrementCartItemQuantityHandler(id,data.size)
-                }}>
+                <TouchableOpacity
+                  style={styles.CartItemIcon}
+                  onPress={() => {
+                    incrementCartItemQuantityHandler(id, data.size);
+                  }}>
                   <CustomIcon
                     name="add"
                     color={COLORS.primaryWhiteHex}
@@ -148,30 +150,34 @@ const CartItem: React.FC<CartItemProp> = ({
               </Text>
             </View>
             <View style={styles.CartItemSingleQuantityContainer}>
-                <TouchableOpacity style={styles.CartItemIcon} onPress={()=>{
-                  decrementCartItemQuantityHandler(id,prices[0].size)
+              <TouchableOpacity
+                style={styles.CartItemIcon}
+                onPress={() => {
+                  decrementCartItemQuantityHandler(id, prices[0].size);
                 }}>
-                  <CustomIcon
-                    name="minus"
-                    color={COLORS.primaryWhiteHex}
-                    size={FONTSIZE.size_10}
-                  />
-                </TouchableOpacity>
-                <View style={styles.CartItemQuantityContainer}>
-                  <Text style={styles.CartItemQuantityTxt}>
-                    {prices[0].quantity}
-                  </Text>
-                </View>
-                <TouchableOpacity style={styles.CartItemIcon} onPress={()=>{
-                  incrementCartItemQuantityHandler(id,prices[0].size)
-                }}>
-                  <CustomIcon
-                    name="add"
-                    color={COLORS.primaryWhiteHex}
-                    size={FONTSIZE.size_10}
-                  />
-                </TouchableOpacity>
+                <CustomIcon
+                  name="minus"
+                  color={COLORS.primaryWhiteHex}
+                  size={FONTSIZE.size_10}
+                />
+              </TouchableOpacity>
+              <View style={styles.CartItemQuantityContainer}>
+                <Text style={styles.CartItemQuantityTxt}>
+                  {prices[0].quantity}
+                </Text>
               </View>
+              <TouchableOpacity
+                style={styles.CartItemIcon}
+                onPress={() => {
+                  incrementCartItemQuantityHandler(id, prices[0].size);
+                }}>
+                <CustomIcon
+                  name="add"
+                  color={COLORS.primaryWhiteHex}
+                  size={FONTSIZE.size_10}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
         </LinearGradient>
       )}
@@ -289,20 +295,20 @@ const styles = StyleSheet.create({
     borderRadius: BORDERRADIUS.radius_20,
   },
   CatItemSingleInfo: {
-    flex:1,
-    alignSelf:'stretch',
-    justifyContent:'space-around',
+    flex: 1,
+    alignSelf: 'stretch',
+    justifyContent: 'space-around',
   },
   CartItemSingleValueContainer: {
-    flexDirection:'row',
-    justifyContent:'space-evenly',
-    alignItems:'center'
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
-  CartItemSingleQuantityContainer:{
-    flexDirection:'row',
-    justifyContent:'space-evenly',
-    alignItems:'center'
-  }
+  CartItemSingleQuantityContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
 });
 
 export default CartItem;
