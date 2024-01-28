@@ -1,4 +1,4 @@
-import {ScrollView, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {useStore} from '../store/store';
 import {COLORS, SPACING} from '../theme/theme';
@@ -55,6 +55,9 @@ const OrderHistoryScreen = ({navigation}: any) => {
             )}
           </View>
         </View>
+        <View>{OrderHistoryList.length > 0 ? <TouchableOpacity style={styles.DownloadButton}>
+          <Text style={styles.DownloadButtonTxt}>Download</Text>
+        </TouchableOpacity>: <></>}</View>
       </ScrollView>
     </View>
   );
@@ -84,4 +87,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.space_20,
     gap: SPACING.space_30,
   },
+  DownloadButton:{
+    
+  }
 });
