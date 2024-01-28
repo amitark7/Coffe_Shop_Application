@@ -45,7 +45,7 @@ const OrderHistoryScreen = ({navigation}: any) => {
                 {OrderHistoryList.map((data: any, index: any) => (
                   <OrderHistoryCard
                     key={index.toString()}
-                    navigationHandler={() => {}}
+                    navigationHandler={navigationHandler}
                     OrderDate={data.OrderDate}
                     CartListPrice={data.CartListPrice}
                     CartList={data.CartList}
