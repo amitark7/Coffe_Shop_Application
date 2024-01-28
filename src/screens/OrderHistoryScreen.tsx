@@ -8,11 +8,19 @@ import EmptyListConatiner from '../components/EmptyListConatiner';
 import PopUpAnimation from '../components/PopUpAnimation';
 import OrderHistoryCard from '../components/OrderHistoryCard';
 
-const OrderHistoryScreen = () => {
+const OrderHistoryScreen = ({navigation}: any) => {
   const [showAnimation, setShowAnimation] = useState(false);
   const OrderHistoryList = useStore((state: any) => state.OrderHistoryList);
 
   const tabBarHeight = useBottomTabBarHeight();
+
+  const navigationHandler = ({index, id, type}: any) => {
+    navigation.push('Details', {
+      index,
+      id,
+      type,
+    });
+  };
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -37,7 +45,7 @@ const OrderHistoryScreen = () => {
                 {OrderHistoryList.map((data: any, index: any) => (
                   <OrderHistoryCard
                     key={index.toString()}
-                    navigationHandler={()=>{}}
+                    navigationHandler={() => {}}
                     OrderDate={data.OrderDate}
                     CartListPrice={data.CartListPrice}
                     CartList={data.CartList}
