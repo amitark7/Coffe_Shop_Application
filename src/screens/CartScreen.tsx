@@ -26,7 +26,6 @@ const CartScreen = ({navigation, route}: any) => {
     (state: any) => state.decrementCartListQuantity,
   );
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
-
   const TabBarHeight = useBottomTabBarHeight();
 
   const ButtonPressHandler = () => {
@@ -43,7 +42,6 @@ const CartScreen = ({navigation, route}: any) => {
     increamentCartListQuantity(id, size);
     calculateCartPrice();
   };
-
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />

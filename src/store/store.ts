@@ -202,7 +202,6 @@ export const useStore = create(
             state.CartList = [];
           }),
         ),
-        
     }),
     {
       name: 'coffes-app',
