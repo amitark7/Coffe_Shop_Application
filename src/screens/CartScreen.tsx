@@ -25,6 +25,7 @@ const CartScreen = ({navigation, route}: any) => {
   const decrementCartListQuantity = useStore(
     (state: any) => state.decrementCartListQuantity,
   );
+  
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
   const TabBarHeight = useBottomTabBarHeight();
 
