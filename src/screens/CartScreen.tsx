@@ -17,12 +17,11 @@ import CartItem from '../components/CartItem';
 
 const CartScreen = ({navigation, route}: any) => {
   const CartList = useStore((state: any) => state.CartList);
-
   const CartPrice = useStore((state: any) => state.CartPrice);
   const increamentCartListQuantity = useStore(
     (state: any) => state.increamentCartListQuantity,
   );
-  
+
   const decrementCartListQuantity = useStore(
     (state: any) => state.decrementCartListQuantity,
   );
