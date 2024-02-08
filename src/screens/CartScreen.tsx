@@ -20,7 +20,7 @@ const CartScreen = ({navigation, route}: any) => {
   const CartPrice = useStore((state: any) => state.CartPrice);
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
   const TabBarHeight = useBottomTabBarHeight();
-  
+
   const increamentCartListQuantity = useStore(
     (state: any) => state.increamentCartListQuantity,
   );
@@ -28,7 +28,6 @@ const CartScreen = ({navigation, route}: any) => {
   const decrementCartListQuantity = useStore(
     (state: any) => state.decrementCartListQuantity,
   );
-
 
   const ButtonPressHandler = () => {
     navigation.push('Payment',{
