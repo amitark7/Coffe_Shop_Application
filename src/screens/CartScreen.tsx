@@ -18,12 +18,13 @@ import CartItem from '../components/CartItem';
 const CartScreen = ({navigation, route}: any) => {
   const CartList = useStore((state: any) => state.CartList);
   const CartPrice = useStore((state: any) => state.CartPrice);
+  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
+  const TabBarHeight = useBottomTabBarHeight();
+  
   const increamentCartListQuantity = useStore(
     (state: any) => state.increamentCartListQuantity,
   );
 
-  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
-  const TabBarHeight = useBottomTabBarHeight();
   const decrementCartListQuantity = useStore(
     (state: any) => state.decrementCartListQuantity,
   );
