@@ -34,11 +34,12 @@ const CartScreen = ({navigation, route}: any) => {
       amount:CartPrice
     });
   };
-  
+
   const decrementCartListQuantityHandler = (id: string, size: string) => {
     decrementCartListQuantity(id, size);
     calculateCartPrice();
   };
+  
   const increamentCartListQuantityHandler = (id: string, size: string) => {
     increamentCartListQuantity(id, size);
     calculateCartPrice();
