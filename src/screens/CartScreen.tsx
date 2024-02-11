@@ -44,7 +44,6 @@ const CartScreen = ({navigation, route}: any) => {
     increamentCartListQuantity(id, size);
     calculateCartPrice();
   };
-  
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
