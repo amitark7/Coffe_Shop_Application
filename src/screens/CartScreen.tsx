@@ -28,7 +28,6 @@ const CartScreen = ({navigation, route}: any) => {
   const decrementCartListQuantity = useStore(
     (state: any) => state.decrementCartListQuantity,
   );
-
   const ButtonPressHandler = () => {
     navigation.push('Payment',{
       amount:CartPrice
