@@ -35,7 +35,6 @@ const DetailsScreen = ({navigation, route}: any) => {
   const BackHandler = () => {
     navigation.pop();
   };
-
   const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
     console.log(favorite, type, id);
 
