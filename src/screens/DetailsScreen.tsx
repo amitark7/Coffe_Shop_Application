@@ -40,7 +40,6 @@ const DetailsScreen = ({navigation, route}: any) => {
 
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
-
   const addToCartHandler = ({
     id,
     index,
