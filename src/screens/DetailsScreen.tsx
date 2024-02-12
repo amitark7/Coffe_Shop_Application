@@ -32,9 +32,11 @@ const DetailsScreen = ({navigation, route}: any) => {
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
   );
+  
   const BackHandler = () => {
     navigation.pop();
   };
+
   const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
