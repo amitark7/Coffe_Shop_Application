@@ -32,7 +32,6 @@ const DetailsScreen = ({navigation, route}: any) => {
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
   );
-
   const BackHandler = () => {
     navigation.pop();
   };
