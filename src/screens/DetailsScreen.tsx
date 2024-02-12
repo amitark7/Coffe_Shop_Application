@@ -36,7 +36,6 @@ const DetailsScreen = ({navigation, route}: any) => {
     navigation.pop();
   };
   const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
-    console.log(favorite, type, id);
 
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
