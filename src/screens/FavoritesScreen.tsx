@@ -19,11 +19,10 @@ const FavoritesScreen = ({navigation}: any) => {
   const FavoritesList = useStore((state: any) => state.FavoritesList);
   const TabBarBottomHeight = useBottomTabBarHeight();
   const addToFavorteList = useStore((state: any) => state.addToFavorteList);
-  
+
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
   );
-
   const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
