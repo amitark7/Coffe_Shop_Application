@@ -24,7 +24,6 @@ const FavoritesScreen = ({navigation}: any) => {
   );
 
   const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
-    console.log(favorite, type, id);
 
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
