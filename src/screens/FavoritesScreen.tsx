@@ -17,8 +17,8 @@ import FavoritesCartItem from '../components/FavoritesCartItem';
 
 const FavoritesScreen = ({navigation}: any) => {
   const FavoritesList = useStore((state: any) => state.FavoritesList);
-  const TabBarBottomHeight = useBottomTabBarHeight();
   const addToFavorteList = useStore((state: any) => state.addToFavorteList);
+  const TabBarBottomHeight = useBottomTabBarHeight();
 
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
@@ -26,7 +26,7 @@ const FavoritesScreen = ({navigation}: any) => {
   const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
-  
+
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
