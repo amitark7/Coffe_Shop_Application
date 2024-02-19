@@ -29,7 +29,6 @@ const FavoritesScreen = ({navigation}: any) => {
   };
 
 
-  
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
