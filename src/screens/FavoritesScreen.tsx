@@ -28,7 +28,6 @@ const FavoritesScreen = ({navigation}: any) => {
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
 
-  
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
