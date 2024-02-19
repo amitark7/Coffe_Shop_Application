@@ -20,6 +20,7 @@ const FavoritesScreen = ({navigation}: any) => {
   const addToFavorteList = useStore((state: any) => state.addToFavorteList);
   const TabBarBottomHeight = useBottomTabBarHeight();
 
+
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
   );
@@ -27,6 +28,7 @@ const FavoritesScreen = ({navigation}: any) => {
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
 
+  
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
