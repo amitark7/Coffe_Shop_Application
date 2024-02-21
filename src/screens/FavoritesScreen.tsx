@@ -26,6 +26,7 @@ const FavoritesScreen = ({navigation}: any) => {
   const ToggleFavorite = (favorite: boolean, type: string, id: string) => {
     favorite ? deleteFromFavoriteList(type, id) : addToFavorteList(type, id);
   };
+  
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
