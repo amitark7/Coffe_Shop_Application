@@ -56,6 +56,7 @@ const HomeScreen = ({navigation}:any) => {
   const [categories, setCategories] = useState(
     getCateggoryFromData(CoffeeList),
   );
+  
   const [searchText, setSearchText] = useState('');
   const [categoryIndex, setCategoryIndex] = useState({
     index: 0,
