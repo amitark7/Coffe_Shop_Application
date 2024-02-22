@@ -54,7 +54,6 @@ const HomeScreen = ({navigation}:any) => {
   const BeansList = useStore((state: any) => state.BeansList);
 
   const addToCart = useStore((state: any) => state.addToCart);
-  
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
 
   const [categories, setCategories] = useState(
