@@ -56,7 +56,7 @@ const HomeScreen = ({navigation}:any) => {
   const [categories, setCategories] = useState(
     getCateggoryFromData(CoffeeList),
   );
-  
+
   const [searchText, setSearchText] = useState('');
   const [categoryIndex, setCategoryIndex] = useState({
     index: 0,
@@ -117,6 +117,7 @@ const HomeScreen = ({navigation}:any) => {
     calculateCartPrice();
     ToastAndroid.showWithGravity(`${name} is Added to Cart`,ToastAndroid.SHORT,ToastAndroid.CENTER)
   };
+  
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
