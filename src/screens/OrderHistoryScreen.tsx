@@ -41,13 +41,11 @@ const OrderHistoryScreen = ({navigation}: any) => {
   return (
     <View style={[styles.ScreenContainer, {marginBottom: tabBarHeight}]}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
-      {showAnimation ? (
+      {showAnimation && (
         <PopUpAnimation
           style={styles.lottieAnimation}
           source={require('../lottie/download.json')}
         />
-      ) : (
-        <></>
       )}
       <ScrollView
         showsVerticalScrollIndicator={false}
