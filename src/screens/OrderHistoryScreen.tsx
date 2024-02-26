@@ -48,7 +48,6 @@ const OrderHistoryScreen = ({navigation}: any) => {
           source={require('../lottie/download.json')}
         />
       )}
-      
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
