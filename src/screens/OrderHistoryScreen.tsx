@@ -38,7 +38,7 @@ const OrderHistoryScreen = ({navigation}: any) => {
       type,
     });
   };
-  
+
   return (
     <View style={[styles.ScreenContainer, {marginBottom: tabBarHeight}]}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -48,6 +48,7 @@ const OrderHistoryScreen = ({navigation}: any) => {
           source={require('../lottie/download.json')}
         />
       )}
+      
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
