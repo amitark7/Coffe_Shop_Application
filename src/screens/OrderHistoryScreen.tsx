@@ -85,7 +85,6 @@ const OrderHistoryScreen = ({navigation}: any) => {
     </View>
   );
 };
-
 export default OrderHistoryScreen;
 
 const styles = StyleSheet.create({
