@@ -38,7 +38,6 @@ const OrderHistoryScreen = ({navigation}: any) => {
       type,
     });
   };
-
   return (
     <View style={[styles.ScreenContainer, {marginBottom: tabBarHeight}]}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
