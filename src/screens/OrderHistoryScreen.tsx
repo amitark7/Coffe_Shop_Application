@@ -23,8 +23,9 @@ import OrderHistoryCard from '../components/OrderHistoryCard';
 
 const OrderHistoryScreen = ({navigation}: any) => {
   const [showAnimation, setShowAnimation] = useState(false);
-  const OrderHistoryList = useStore((state: any) => state.OrderHistoryList);
   
+  const OrderHistoryList = useStore((state: any) => state.OrderHistoryList);
+
   const tabBarHeight = useBottomTabBarHeight();
 
   const buttonPresshandler = () => {
