@@ -31,6 +31,7 @@ const OrderHistoryScreen = ({navigation}: any) => {
       setShowAnimation(false);
     }, 2000);
   };
+  
   const navigationHandler = ({index, id, type}: any) => {
     navigation.push('Details', {
       index,
@@ -38,7 +39,7 @@ const OrderHistoryScreen = ({navigation}: any) => {
       type,
     });
   };
-  
+
   return (
     <View style={[styles.ScreenContainer, {marginBottom: tabBarHeight}]}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
