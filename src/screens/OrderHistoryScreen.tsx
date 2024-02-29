@@ -42,7 +42,6 @@ const OrderHistoryScreen = ({navigation}: any) => {
     <View style={[styles.ScreenContainer, {marginBottom: tabBarHeight}]}>
 
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
-      
       {showAnimation && (
         <PopUpAnimation
           style={styles.lottieAnimation}
