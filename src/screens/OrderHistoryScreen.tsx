@@ -28,13 +28,14 @@ const OrderHistoryScreen = ({navigation}: any) => {
   const OrderHistoryList = useStore((state: any) => state.OrderHistoryList);
 
   const tabBarHeight = useBottomTabBarHeight();
-  
+
   const buttonPresshandler = () => {
     setShowAnimation(true);
     setTimeout(() => {
       setShowAnimation(false);
     }, 2000);
   };
+  
   const navigationHandler = ({index, id, type}: any) => {
     navigation.push('Details', {
       index,
