@@ -35,7 +35,6 @@ const OrderHistoryScreen = ({navigation}: any) => {
       setShowAnimation(false);
     }, 2000);
   };
-
   const navigationHandler = ({index, id, type}: any) => {
     navigation.push('Details', {
       index,
